@@ -245,7 +245,7 @@ int main(int argc, char **argv)
 	       dev.zone_nr_sectors,
 	       (dev.zone_nr_sectors << 9) / (1024 * 1024));
 	if (nr_zones < dev.nr_zones) {
-		size_t runt_sectors = dev.capacity & (dev.zone_nr_sectors - 1);
+		size_t runt_sectors = dev.capacity % dev.zone_nr_sectors;
 
 		printf("  1 runt zone of %zu 512-byte sectors (%zu MiB)\n",
 		       runt_sectors,
